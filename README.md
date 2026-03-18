@@ -477,6 +477,24 @@ If you continue evolving this skill, the highest-value next steps are:
 4. 继续把 prediction-model appraisal 做得更内生  
    Continue making prediction-model appraisal more native
 
+## 打包 / Packaging
+
+仓库现在包含一个可重复执行的发布打包脚本：  
+The repository now includes a reproducible release packaging script:
+
+```bash
+python scripts/package_release.py --version 20260318
+```
+
+默认会生成：  
+By default it generates:
+
+- `dist/academic-write-all-skill-<version>.zip`
+- `dist/academic-write-all-skill-<version>.zip.sha256`
+
+打包时会自动排除 `.git`、`.venv`、`__pycache__`、`dist`、`smoke-project` 和 `*.pyc`。  
+The packager automatically excludes `.git`, `.venv`, `__pycache__`, `dist`, `smoke-project`, and `*.pyc`.
+
 ## 仓库地址 / Repository
 
 - `https://github.com/family3253/academic-write-all-skill`

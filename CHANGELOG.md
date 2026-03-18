@@ -8,6 +8,7 @@ All notable changes to this repository are documented in this file.
 - published `academic-write-all-skill` to GitHub as a standalone repository
 - added `evals/evals.json` with live routing and adversarial fallback regression prompts
 - added prediction-model review/appraisal support and dedicated evidence-matrix and appraisal-checklist templates
+- added `scripts/package_release.py` and a reproducible `dist/` packaging flow for GitHub-ready release artifacts
 - added a detailed `README.md` covering:
   - repository purpose
   - capability areas

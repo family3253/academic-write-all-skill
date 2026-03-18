@@ -45,6 +45,30 @@ For each included study, try to extract:
 
 If any field is missing, mark it explicitly rather than filling it by guesswork.
 
+## 3B. Native Working Appraisal Frame
+
+Before invoking external standards, the skill should already be able to do a built-in working appraisal using these three buckets:
+
+### Reporting completeness (TRIPOD-like native baseline)
+- are population, setting, and outcome clearly defined?
+- are predictors listed clearly enough to understand bedside availability?
+- is the model form explained (`score`, `nomogram`, `ML`, other)?
+- are validation and performance metrics reported?
+- is there enough information for a reader to understand how the model would be used?
+
+### Bias / applicability warning scan (PROBAST-like native baseline)
+- is the cohort narrow, single-center, or otherwise hard to generalize?
+- are predictor or outcome definitions unclear?
+- is there evidence of weak validation or only development-stage optimism?
+- is calibration absent or underreported?
+- does the target outcome actually match the clinical decision the paper claims to support?
+
+### Structured extraction discipline (CHARMS-like native baseline)
+- capture study, population, setting, outcome, predictors, model type, validation, and major limits
+- keep risk-factor studies separate from finished prediction-model studies
+- keep disease-topic synthesis separate from model-appraisal synthesis
+
+This native frame is intentionally lighter than the formal external checklists, but it gives the skill a stronger built-in floor before escalation.
 ## 4. Recommended Review Structure
 
 ### A. Why prediction is needed
@@ -128,9 +152,14 @@ A good matrix usually includes:
 If methodological appraisal becomes the bottleneck, it is acceptable to borrow external reporting or appraisal patterns, but only with explicit labeling.
 
 Preferred external standards for this situation:
-- `TRIPOD / TRIPOD+AI` for reporting completeness of prediction-model studies and reviews
-- `PROBAST / PROBAST+AI` for risk-of-bias and applicability appraisal
+- `TRIPOD` for traditional regression / score / nomogram reporting completeness
+- `TRIPOD+AI` when the prediction model uses AI / machine-learning methods or AI-specific workflow elements
+- `PROBAST` for traditional bias / applicability appraisal
+- `PROBAST+AI` when AI or machine-learning methodology materially changes the bias/applicability assessment
 - `CHARMS`-style extraction logic when the review needs a structured data-extraction frame for prediction-model studies
+
+Current conservative note:
+- a formal, official `CHARMS+AI` equivalent is not treated as confirmed here, so the repository uses `CHARMS-style` language rather than claiming an authoritative AI extension by name
 
 Good phrasing:
 - `For model-appraisal structure, I am borrowing a prediction-model review pattern from external reporting/appraisal standards such as TRIPOD/PROBAST.`

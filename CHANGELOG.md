@@ -6,8 +6,8 @@ All notable changes to this repository are documented in this file.
 
 ### Added
 - published `academic-write-all-skill` to GitHub as a standalone repository
-- added `evals/evals.json` with three live routing regression prompts
-- added prediction-model review/appraisal support and a dedicated evidence-matrix template
+- added `evals/evals.json` with live routing and adversarial fallback regression prompts
+- added prediction-model review/appraisal support and dedicated evidence-matrix and appraisal-checklist templates
 - added a detailed `README.md` covering:
   - repository purpose
   - capability areas
@@ -24,6 +24,7 @@ All notable changes to this repository are documented in this file.
 - expanded `SKILL.md` routing to include stronger paper-production and review-project distinctions
 - absorbed selected research-lifecycle patterns from the legacy `family3253/academic-write` repository
 - added research-lifecycle routing for idea discovery, novelty checks, literature-to-gap narrowing, and experiment-to-writing handoff
+- made prediction-model appraisal more native with TRIPOD-like / PROBAST-like / CHARMS-like built-in working structure while syncing TRIPOD+AI and PROBAST+AI as explicit external standards
 - documented one-command installation for OpenCode and OpenClaw
 - added self-update routing that prefers local skills first and external GitHub learning second
 - added `paper-production family` routing language

@@ -1,29 +1,31 @@
 ---
-name: cycwrite
-description: Use when planning, outlining, drafting, revising, translating, reviewing, formatting, or preparing submission materials for an academic paper, thesis chapter, literature review, scoping review, systematic review, journal manuscript, or reviewer-response package. Especially useful when the user has scattered notes, partial sections, evidence gaps, target-journal constraints, reviewer comments, or needs a stage-based academic writing workflow with citation discipline, anti-hallucination safeguards, claim-to-evidence traceability, review-grade corpus gating, journal-fit triage, format-convert awareness, reviewer-response packaging, and re-review readiness checks.
+name: academic-write-all-skill
+description: Use when planning, ideating, checking novelty, outlining, drafting, revising, translating, reviewing, formatting, or preparing submission materials for an academic paper, thesis chapter, literature review, scoping review, systematic review, journal manuscript, or reviewer-response package. Especially useful when the user has scattered notes, partial sections, evidence gaps, target-journal constraints, reviewer comments, or needs a stage-based academic writing workflow with citation discipline, anti-hallucination safeguards, claim-to-evidence traceability, review-grade corpus gating, journal-fit triage, format-convert awareness, reviewer-response packaging, experiment-to-writing handoff, and re-review readiness checks.
 ---
 
-# cycwrite
+# academic-write-all-skill
 
 ## Overview
 
-`cycwrite` is a unified academic-writing orchestration skill.
+`academic-write-all-skill` is a unified academic-writing orchestration skill.
 
 Its governing principle is: **write in stages, route by task type, and never let polished prose outrun verified evidence**. High-quality academic writing depends on structure, evidence control, genre routing, journal fit, revision logic, and submission readiness—not just elegant sentences.
 
-This skill supports Chinese, English, and bilingual workflows across journal manuscripts, theses, proposals, literature reviews, evidence reviews, cover letters, reviewer-response packages, outline-first paper planning, abstract-only work, citation-check passes, and late-stage format-convert tasks.
+This skill supports Chinese, English, and bilingual workflows across journal manuscripts, theses, proposals, literature reviews, evidence reviews, cover letters, reviewer-response packages, outline-first paper planning, abstract-only work, citation-check passes, late-stage format-convert tasks, and idea-to-paper lifecycle planning.
 
 ## When to Use
 
 Use this skill when the user needs help with any of the following:
 
 - topic ideation, research-question refinement, or proposal framing
+- research idea discovery, novelty-check framing, or literature-to-idea narrowing
 - literature reading, literature search strategy, evidence synthesis, or review-article planning
 - Chinese thesis retrieval, CNKI/Wanfang/university repository discovery, or learning from authorized thesis exports and PDFs
 - thesis statement sharpening, outline building, and argument structuring
 - master's thesis / dissertation chapter planning, chapter-level drafting, or thesis-to-manuscript adaptation
 - section drafting: `Introduction`, `Methods`, `Results`, `Discussion`, abstract, conclusion
 - title, keywords, highlights, graphical abstract copy, or cover letter drafting
+- experiment-to-writing handoff, result interpretation planning, or figure/compile-aware writing coordination
 - translation, polishing, shortening, rewriting, anti-AI-tone revision, or style repair
 - pre-submission review, journal-fit evaluation, or acceptance-risk triage
 - reviewer comment response, revision mapping, and rebuttal writing
@@ -59,6 +61,8 @@ When tables, figures, legends, or statistical outputs are available, treat them 
 ```text
 Need help with topic or proposal?
   -> ideation / proposal mode
+Need to go from idea discovery or novelty check into a paper plan?
+  -> research lifecycle mode
 Need help organizing paper logic?
   -> outline / argument mode
 Need a paper plan, abstract, citation check, or format convert?
@@ -127,6 +131,8 @@ Before choosing the detailed mode, decide which of these three families the task
 - **review-project family** — narrative / scoping / systematic / umbrella / critical review with corpus, screening, and evidence-gate questions
 - **late-stage operations family** — polishing, citation cleanup, reviewer response, or submission preparation
 
+If the user is still moving from idea -> novelty -> literature -> experiment/result framing -> paper drafting, treat that as a research-lifecycle task first rather than jumping straight into manuscript prose.
+
 ### A. Ideation / Proposal Mode
 Use when the user is still defining the project.
 
@@ -137,6 +143,27 @@ Typical outputs:
 - research gap statement
 - contribution options
 - thesis statement candidates
+
+### A2. Research Lifecycle Mode
+Use when the user is not merely asking for prose, but for help moving through the broader academic pipeline from early idea to paper-ready writing inputs.
+
+Typical outputs:
+- idea shortlist
+- novelty-check plan
+- literature-to-gap memo
+- experiment/result packaging memo
+- paper plan handoff
+- review loop recommendation
+
+This mode is where absorbed `academic-write` capabilities matter most. It should connect:
+- idea discovery
+- novelty checks
+- literature review
+- result analysis
+- figure / compile awareness
+- iterative review and polishing
+
+without pretending all of those steps are fully automated inside one prompt.
 
 ### B. Outline / Argument Mode
 Use when the topic exists but the manuscript logic is not stable.
@@ -296,6 +323,7 @@ Use these submodes when the task is clearly paper-centric rather than review-cor
 - `citation-check` — audit citation consistency, metadata completeness, and obvious orphan / missing-source issues
 - `format-convert` — adapt between Markdown / LaTeX / DOCX expectations, citation-style expectations, or journal-facing packaging needs
 - `revision-coach` — convert reviewer comments into a revision roadmap, response matrix, and execution bundle
+- `figure-and-compile-aware` — keep drafting aligned with figure planning, visual evidence packs, and later paper-compilation constraints
 
 These are routing labels, not a promise of full automation. Use the narrowest honest submode that matches the user’s stage.
 
@@ -347,6 +375,8 @@ Examples:
 | User request | Default route |
 |---|---|
 | `帮我想选题` | Ideation / Proposal Mode |
+| `帮我找研究idea` | A2 -> Research Lifecycle Mode |
+| `帮我查新` | A2 -> Research Lifecycle Mode |
 | `帮我写开题` | Ideation / Proposal Mode |
 | `帮我搭框架` | Outline / Argument Mode |
 | `帮我列论文提纲` | F2 -> `outline-only` |
@@ -359,9 +389,11 @@ Examples:
 | `帮我写硕士论文` | Thesis / Dissertation Mode |
 | `帮我搭硕士论文框架` | Thesis / Dissertation Mode |
 | `帮我写论文结果章` | Thesis / Dissertation Mode |
+| `帮我把实验结果整理成写作输入` | A2 -> Research Lifecycle Mode |
 | `根据图表写结果` | Section Drafting -> Results |
 | `根据表格写结果` | Section Drafting -> Results |
 | `帮我检索文献` | Literature Search / Screening Mode |
+| `帮我做文献到选题的收敛` | A2 -> Research Lifecycle Mode |
 | `帮我做相关工作检索` | Literature Search / Screening Mode |
 | `帮我搭检索式` | Literature Search / Screening Mode |
 | `帮我筛文献` | Literature Search / Screening Mode |
@@ -381,6 +413,7 @@ Examples:
 | `帮我检查引用` | F2 -> `citation-check` |
 | `帮我转LaTeX` | F2 -> `format-convert` |
 | `帮我转换引用格式` | F2 -> `format-convert` |
+| `帮我根据图表推进论文写作` | F2 -> `figure-and-compile-aware` |
 | `帮我检查逻辑` | Microtask / Operations Mode |
 | `帮我改参考文献格式` | Microtask / Operations Mode |
 | `帮我选刊` | Submission / Review Mode |
@@ -461,13 +494,14 @@ Return a bundle containing:
 
 ## Skill Handoff / Specialist Boundary
 
-`cycwrite` is the routing-and-standards layer for academic writing work. It has now absorbed core paper-production patterns and review-project routing patterns, but it still should not pretend to be every specialist tool at once. When a task becomes clearly specialist, keep the writing workflow coherent but hand off mentally to the narrower capability pattern:
+`academic-write-all-skill` is the routing-and-standards layer for academic writing work. It has now absorbed core paper-production patterns, review-project routing patterns, and selected research-lifecycle patterns from the older `academic-write` repository, but it still should not pretend to be every specialist tool at once. When a task becomes clearly specialist, keep the writing workflow coherent but hand off mentally to the narrower capability pattern:
 
 - use `citation-management` logic when the bottleneck is DOI lookup, metadata normalization, deduplication, or export-ready references
 - use `academic-paper-reviewer` logic when the user needs a structured external-style review rather than drafting help
 - use `latex-compile-qa` logic when the bottleneck is LaTeX compilation or bibliography build failure
 - use `venue-templates` logic when the user needs venue-specific formatting constraints rather than generic prose help
 - use `humanizer` logic when the late-stage need is de-AI-ification or voice repair without changing evidence content
+- use research-pipeline style logic when the user is still doing idea discovery, novelty checking, or broad research-to-paper planning before a stable manuscript exists
 - use `research-lit`, `arxiv`, or `pubmed-database` logic when the bottleneck is active retrieval depth rather than writing-stage synthesis
 - use `cycwrite-retrieval-orchestrator` logic when the bottleneck is provider routing, authorized browser workflows, export normalization, or access-state management
 

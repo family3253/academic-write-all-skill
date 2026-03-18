@@ -27,7 +27,7 @@ def main() -> int:
         run(str(CLI), "project-gate", str(SMOKE_DIR))
     finally:
         shutil.rmtree(SMOKE_DIR, ignore_errors=True)
-    print("[ok] cycwrite smoke test passed")
+    print("[ok] academic-write-all-skill smoke test passed")
     return 0
 
 

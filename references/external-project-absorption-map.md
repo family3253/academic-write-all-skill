@@ -142,6 +142,26 @@ They should **not** be absorbed as wholesale copied systems.
 - strengthens project-session thinking so writing outputs stay linked to search, screening, extraction, and figure artifacts
 - justifies pairing `cycwrite` with agent orchestration instead of bloating the skill itself into a monolithic automation stack
 
+## 8. academic-write (legacy repository)
+
+### What can be absorbed
+- research-lifecycle continuity from idea discovery to paper planning
+- novelty-check framing before premature drafting
+- stronger linkage between literature review, experiment/result packaging, and manuscript writing
+- iterative review and paper-improvement mindset
+- paper-plan, paper-write, paper-compile, and figure-aware workflow coordination patterns
+
+### What should not be copied wholesale
+- the entire old repository as a second monolith
+- all vendored skills as separate subskills inside the main package
+- external tool wrappers pretending to be guaranteed runtime support
+- environment-specific orchestration assumptions from the legacy project
+
+### How it strengthens academic-write-all-skill
+- upgrades the skill from writing-aware to research-lifecycle-aware
+- improves stage diagnosis before a manuscript fully exists
+- supports idea -> literature -> experiment/result -> paper transitions without overpromising automation
+
 ## Absorption Outcome for cycwrite
 
 After absorbing these projects conceptually, `cycwrite` becomes:

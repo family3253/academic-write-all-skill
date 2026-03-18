@@ -5,7 +5,8 @@ All notable changes to this repository are documented in this file.
 ## 2026-03-18
 
 ### Added
-- published `cycwrite` to GitHub as a standalone repository
+- published `academic-write-all-skill` to GitHub as a standalone repository
+- added `evals/evals.json` with three live routing regression prompts
 - added a detailed `README.md` covering:
   - repository purpose
   - capability areas
@@ -17,7 +18,11 @@ All notable changes to this repository are documented in this file.
 - added `scripts/smoke_test.py` for repeatable repository-level smoke checks
 
 ### Changed
+- renamed the public skill identity to `academic-write-all-skill`
 - expanded `SKILL.md` routing to include stronger paper-production and review-project distinctions
+- absorbed selected research-lifecycle patterns from the legacy `family3253/academic-write` repository
+- added research-lifecycle routing for idea discovery, novelty checks, literature-to-gap narrowing, and experiment-to-writing handoff
+- documented one-command installation for OpenCode and OpenClaw
 - added `paper-production family` routing language
 - added paper submodes including:
   - `outline-only`

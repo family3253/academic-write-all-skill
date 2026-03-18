@@ -1,12 +1,12 @@
-# cycwrite
+# academic-write-all-skill
 
-`cycwrite` is an academic writing orchestration skill for OpenCode.
+`academic-write-all-skill` is an academic writing orchestration skill for OpenCode and OpenClaw.
 
 It is designed to route users to the right writing workflow before generating prose. Instead of behaving like a single long prompt, it acts as a standards and routing layer for staged academic work: paper planning, section drafting, literature search and screening, review-project gating, revision coaching, submission preparation, and evidence-aware writing.
 
 ## What It Does
 
-`cycwrite` is built around one core rule:
+`academic-write-all-skill` is built around one core rule:
 
 > Do not let polished prose outrun verified evidence.
 
@@ -67,7 +67,7 @@ Many academic writing assistants fail in predictable ways:
 - they confuse full drafting with revision planning
 - they ignore whether the user has enough evidence for the deliverable they asked for
 
-`cycwrite` is designed to reduce those failure modes by treating academic writing as a staged workflow with explicit integrity constraints.
+`academic-write-all-skill` is designed to reduce those failure modes by treating academic writing as a staged workflow with explicit integrity constraints.
 
 ## Skill Design Philosophy
 
@@ -83,9 +83,11 @@ This separation keeps the main skill readable while still supporting complex aca
 ## Repository Layout
 
 ```text
-cycwrite/
+academic-write-all-skill/
 ├── SKILL.md
 ├── README.md
+├── CHANGELOG.md
+├── evals/
 ├── requirements-cycwrite.txt
 ├── bootstrap_cycwrite_runtime.bat
 ├── cycwrite.bat
@@ -103,6 +105,11 @@ cycwrite/
   - stage-aware workflow selection
   - integrity rules
   - default subworkflow mapping
+
+#### Evals
+- `evals/evals.json`
+  - reusable live routing prompts for regression testing
+  - currently covers outline-only, revision-coach, and review-output downgrade behavior
 
 #### Reference guides
 - `references/literature-search-and-screening.md`
@@ -142,7 +149,7 @@ cycwrite/
 
 ## Recently Integrated Capabilities
 
-This version explicitly absorbs two additional capability families into `cycwrite`:
+This version explicitly absorbs capability families from `cycwrite`, the earlier paper/review skills, and the legacy `academic-write` repository:
 
 ### From paper-production systems
 - stronger outline-first routing
@@ -157,13 +164,56 @@ This version explicitly absorbs two additional capability families into `cycwrit
 - stronger downgrade honesty when evidence is insufficient
 - candidate pool -> screening -> extraction -> framework -> writing sequencing
 
-The result is that `cycwrite` is no longer only a writing router. It is now a more complete academic workflow router that can distinguish:
+The result is that the skill is no longer only a writing router. It is now a more complete academic workflow router that can distinguish:
 
 - full drafting vs outline-only work
 - manuscript revision vs revision-roadmap planning
 - submission-grade review vs evidence map / framework memo
+- early research lifecycle work vs stable manuscript work
 
 ## Installation
+
+### One-command install for OpenCode
+
+Project-scoped install:
+
+```bash
+npx skills add family3253/academic-write-all-skill -a opencode
+```
+
+Global install:
+
+```bash
+npx skills add family3253/academic-write-all-skill -a opencode -g
+```
+
+### One-command install for OpenClaw
+
+Project-scoped install:
+
+```bash
+npx skills add family3253/academic-write-all-skill -a openclaw
+```
+
+Global install:
+
+```bash
+npx skills add family3253/academic-write-all-skill -a openclaw -g
+```
+
+Fallback for environments still using the older package name:
+
+```bash
+npx add-skill family3253/academic-write-all-skill --agent opencode
+```
+
+Typical install targets:
+- OpenCode project: `.agents/skills/`
+- OpenCode global: `~/.config/opencode/skills/`
+- OpenClaw project: `skills/`
+- OpenClaw global: `~/.openclaw/skills/`
+
+### Runtime helper setup
 
 ### Option 1: Use the Windows bootstrap scripts
 
@@ -264,6 +314,17 @@ The expected behavior is not always to draft. Often the correct first move is to
 
 ## Testing
 
+### Live routing evals
+
+The repository now includes `evals/evals.json`, which stores the three prompts already confirmed in harness-level live routing regression:
+
+- outline-only routing
+- revision-coach routing
+- review-output downgrade routing
+
+These are intended for rerunning assistant-level behavior checks in future sessions.
+
+
 ### What was re-tested for this repository
 
 This repository was re-tested at the repository/runtime level using commands that are actually executable in this environment.
@@ -294,7 +355,12 @@ There is an important distinction between:
 
 Repository/runtime checks are executable locally.
 
-Live skill-routing behavior tests depend on the surrounding OpenCode / subagent model environment. Earlier attempts in this environment were blocked by upstream model-configuration failures (`Model not found`), which means harness-level behavior tests may need to be rerun in a healthy session even if the repository itself is valid.
+The latest successful harness retry produced correct live routing behavior for three high-value prompts:
+- outline-only behavior
+- revision-coach behavior
+- review-output downgrade behavior
+
+Those prompts are now stored in `evals/evals.json` for reuse.
 
 ## Known Limitations
 
@@ -337,13 +403,13 @@ The public GitHub upload was prepared from a clean workspace copy so the reposit
 
 If you continue evolving this skill, the highest-value next steps are:
 
-1. add harness-level behavior eval prompts and capture expected outputs
-2. add a small automated smoke-test script for the CLI workflows
-3. document provider-specific prerequisites for CNKI / Wanfang / browser workflows more explicitly
-4. add sample review-project directories for end-to-end dry runs
+1. document provider-specific prerequisites for CNKI / Wanfang / browser workflows more explicitly
+2. add sample review-project directories for end-to-end dry runs
+3. add quantitative grading around `evals/evals.json`
+4. package release artifacts for easier cross-agent distribution
 
 ## Repository
 
 GitHub repository:
 
-- `https://github.com/family3253/cycwrite-skill`
+- `https://github.com/family3253/academic-write-all-skill`

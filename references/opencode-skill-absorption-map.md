@@ -59,6 +59,12 @@
 - `markitdown`
   - absorb: markdown normalization awareness for manuscript source handling
 
+## academic-write legacy repository additions
+
+- absorb: idea-discovery, novelty-check, paper-plan, paper-write, paper-compile, and review-loop thinking from the older `academic-write` repository
+- do not absorb wholesale: its entire vendored skill garden, external wrappers, or environment-specific orchestration assumptions
+- use it to strengthen research-lifecycle routing before a stable manuscript exists
+
 ## cycwrite Capability Upgrades To Add
 
 1. **Mode expansion**

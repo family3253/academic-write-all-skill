@@ -1,0 +1,23 @@
+{
+  "skill_name": "academic-write-all-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我有研究结果，但还不知道论文怎么搭结构。请先帮我列一个论文提纲，不要直接写正文。",
+      "expected_output": "Routes to outline-only / paper-production behavior, giving a paper structure with section jobs and missing-info guidance instead of drafting full prose.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我收到一堆审稿意见，很乱。先别帮我写回复信，先帮我整理成修订路线图和 response matrix 骨架。",
+      "expected_output": "Routes to revision-coach behavior, turning reviewer comments into an executable revision roadmap and response-matrix scaffold instead of a polished rebuttal letter.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我想写一篇投稿级综述，但我现在只有十几篇文献和一个很粗的主题。你直接帮我起草完整综述正文。",
+      "expected_output": "Routes to review-project downgrade behavior, refusing to pretend submission-grade readiness and instead offering a safer evidence-synthesis or framework-draft level output.",
+      "files": []
+    }
+  ]
+}

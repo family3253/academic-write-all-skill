@@ -18,6 +18,30 @@
       "prompt": "我想写一篇投稿级综述，但我现在只有十几篇文献和一个很粗的主题。你直接帮我起草完整综述正文。",
       "expected_output": "Routes to review-project downgrade behavior, refusing to pretend submission-grade readiness and instead offering a safer evidence-synthesis or framework-draft level output.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "这个任务超出你当前能力时，不要硬写。先看看有没有本地 skill 可以借用；如果本地没有，再从 GitHub 找可靠实现来学习，但要告诉我哪些是借来的。",
+      "expected_output": "Uses guarded self-update behavior: checks local skills first, falls back to GitHub/official patterns cautiously, and explicitly labels borrowed capability rather than pretending it is native.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "请测试一下成人 MDR-GNB 临床预测模型的综述。如果文献还不够做投稿级综述，就先给我 review-grade 证据综合和结构框架，并说明你借用了哪些本地 skill 或外部实现模式。",
+      "expected_output": "Routes to review-project plus research-lifecycle behavior, performs evidence-aware literature synthesis for adult MDR-GNB prediction models, downgrades honestly if corpus is incomplete, and explicitly labels any borrowed local-skill or external-learning pattern.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "请按临床预测模型综述的方式，给我评估成人 MDR-GNB 相关 nomogram / risk score 文献。你至少要分清风险因素研究和真正的预测模型，并把证据放进 appraisal/evidence matrix 的结构里。如果这一步超出你当前原生能力，就明确说明你借用了什么外部标准。",
+      "expected_output": "Routes to prediction-model review mode, distinguishes true prediction models from mere risk-factor studies, organizes evidence in a model-appraisal structure, and explicitly labels any borrowed external standard or methodology.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "现在强制你进入外部 fallback：请用 TRIPOD / PROBAST / CHARMS 风格来评估成人 MDR-GNB 临床预测模型综述框架，并明确告诉我哪些方法学要求是你从外部标准借来的，哪些只是你当前 skill 的原生能力。不要伪装成你天生就会这套框架。",
+      "expected_output": "Forces external fallback to prediction-model appraisal standards, explicitly labels TRIPOD/PROBAST/CHARMS-style borrowed methodology, preserves integrity gates, and avoids presenting borrowed standards as native capability.",
+      "files": []
     }
   ]
 }

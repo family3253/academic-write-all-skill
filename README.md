@@ -42,6 +42,7 @@ Use these when the task is review-corpus-centric:
 - title / abstract screening
 - full-text screening and evidence extraction
 - claim-to-evidence mapping
+- prediction-model review and appraisal
 - review output-level downgrading when the corpus is weak
 
 ### 3. Late-stage operations
@@ -55,6 +56,14 @@ Use these when the paper already exists and the job is narrower:
 - re-review checks
 - journal-fit triage
 - pre-submission review
+
+### 4. Guarded self-update
+Use this when the current task exceeds the skill's safe native coverage:
+
+- consult bundled references before improvising
+- prefer stronger local skills before inventing a workaround
+- learn cautiously from GitHub or official implementations when local coverage is insufficient
+- keep all borrowed patterns evidence-bound, traceable, and downgrade-honest
 
 ## Why This Skill Exists
 
@@ -77,6 +86,8 @@ The repository follows a layered design:
 - `references/` contains the heavy rules and deeper workflows
 - `scripts/` contains reusable project and retrieval helpers
 - `assets/templates/` contains artifact templates for structured review and writing workflows
+
+The repository also treats capability growth as a managed process rather than implicit improvisation: local references first, local specialist skills second, external learning third.
 
 This separation keeps the main skill readable while still supporting complex academic workflows.
 
@@ -120,6 +131,8 @@ academic-write-all-skill/
   - review-type routing and evidence thresholds
 - `references/review-and-submission.md`
   - journal fit, pre-review, revision-coach, response packages, submission logic
+- `references/prediction-model-review.md`
+  - prediction-model review and appraisal workflow for scores, nomograms, and risk models
 - `references/quality-and-integrity.md`
   - anti-hallucination and evidence-discipline rules
 - `references/microtasks-and-operations.md`
@@ -141,7 +154,7 @@ academic-write-all-skill/
 
 #### Templates
 - `assets/templates/*.csv`
-  - candidate pool, screening, and evidence extraction tables
+  - candidate pool, screening, evidence extraction, and prediction-model appraisal tables
 - `assets/templates/*.md`
   - outlines, claim maps, decision packets, gate checklists, review artifacts
 - `assets/templates/*.json`
@@ -316,11 +329,13 @@ The expected behavior is not always to draft. Often the correct first move is to
 
 ### Live routing evals
 
-The repository now includes `evals/evals.json`, which stores the three prompts already confirmed in harness-level live routing regression:
+The repository now includes `evals/evals.json`, which stores routing and adversarial prompts for harness-level regression, including:
 
 - outline-only routing
 - revision-coach routing
 - review-output downgrade routing
+- guarded self-update / capability-gap handling
+- prediction-model review and external-standard fallback tests
 
 These are intended for rerunning assistant-level behavior checks in future sessions.
 

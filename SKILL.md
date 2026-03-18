@@ -13,6 +13,8 @@ Its governing principle is: **write in stages, route by task type, and never let
 
 This skill supports Chinese, English, and bilingual workflows across journal manuscripts, theses, proposals, literature reviews, evidence reviews, cover letters, reviewer-response packages, outline-first paper planning, abstract-only work, citation-check passes, late-stage format-convert tasks, and idea-to-paper lifecycle planning.
 
+It also supports a guarded self-update behavior: when its own absorbed capability set is not enough, it should first route to stronger local skills and bundled references, then learn cautiously from GitHub or official external implementations, while keeping all new outputs evidence-bound and clearly labeled.
+
 ## When to Use
 
 Use this skill when the user needs help with any of the following:
@@ -30,8 +32,8 @@ Use this skill when the user needs help with any of the following:
 - pre-submission review, journal-fit evaluation, or acceptance-risk triage
 - reviewer comment response, revision mapping, and rebuttal writing
 - paper outline generation, chapter-by-chapter planning, abstract-only drafting, citation-check, or format-convert requests
-- review-type routing for narrative, scoping, systematic, umbrella, or critical reviews
-- literature-search and screening workflows for related work, review corpora, and evidence matrices
+- review-type routing for narrative, scoping, systematic, umbrella, critical, or prediction-model reviews
+- literature-search and screening workflows for related work, review corpora, evidence matrices, and prediction-model appraisal tables
 - literature-search and screening workflows for related work, review corpora, evidence matrices, PRISMA-style record tracking, and review-project artifacts
 - high-frequency academic microtasks such as grammar checks, reference-format checks, logic repair, and statistics-to-prose conversion
 
@@ -71,6 +73,8 @@ Need one manuscript section?
   -> section drafting mode
 Need a review article?
   -> review-type routing first
+Need a clinical prediction model review or nomogram/risk-score appraisal?
+  -> prediction-model review mode
 Already have a draft?
   -> revision / polishing mode
 Ready to submit?
@@ -254,18 +258,20 @@ Hard rules:
 - `references/quality-and-integrity.md`
 
 ### D2. Review-Article Mode
-Use when the requested document is a review, evidence map, scoping review, systematic review, umbrella review, or critical/theoretical review.
+Use when the requested document is a review, evidence map, scoping review, systematic review, umbrella review, critical/theoretical review, or prediction-model review.
 
 Before writing prose, decide:
 - what type of review it is
 - whether strong evidence claims are justified
 - what body framework should organize the review
 - whether the evidence base is sufficient for a submission-grade draft
+- whether the task is actually a prediction-model appraisal/review rather than a generic topic synthesis
 
 **REQUIRED REFERENCES:**
 - `references/review-routing-and-gates.md`
 - `references/review-and-submission.md`
 - `references/section-workflows.md`
+- `references/prediction-model-review.md` when the review centers on scores, nomograms, clinical prediction, or risk stratification tools
 
 ### D3. Review-Project Output Level
 When the user wants a review, explicitly choose the strongest honest output level before drafting:
@@ -276,6 +282,32 @@ When the user wants a review, explicitly choose the strongest honest output leve
 - `framework memo / review outline` — structure and writing logic are ready, but the evidence base is not yet stable
 
 If the corpus, screening record, or evidence coverage is weak, downgrade explicitly instead of writing a pseudo-submission-grade review.
+
+### D4. Prediction-Model Review Mode
+Use when the user is reviewing clinical scores, nomograms, machine-learning models, or other prediction tools rather than a disease topic alone.
+
+Typical outputs:
+- prediction-model evidence map
+- model appraisal table
+- review-grade synthesis of model families
+- gap memo on validation / calibration / transportability
+- structure for a later full review
+
+Core extraction dimensions:
+- target population and clinical setting
+- organism or resistance phenotype target
+- predicted outcome
+- model type (`score`, `nomogram`, `ML`, `other`)
+- predictors used
+- derivation vs internal validation vs external validation
+- discrimination / calibration / clinical utility if reported
+- major bias or transportability concerns
+
+Hard rules:
+- do not merge all prediction studies into one narrative if targets and settings differ too much
+- distinguish risk-factor studies from actual deployable prediction models
+- do not infer good model quality from a nomogram figure alone
+- if methodological appraisal exceeds native coverage, explicitly borrow a local skill or external reporting/appraisal pattern and label it
 
 ### E. Revision / Polishing Mode
 Use when a draft already exists.
@@ -400,6 +432,9 @@ Examples:
 | `帮我检索某院校毕业论文` | Chinese Thesis Retrieval / Learning Mode |
 | `帮我学习知网/万方学位论文` | Chinese Thesis Retrieval / Learning Mode |
 | `帮我做综述` | Review-Article Mode |
+| `帮我做预测模型综述` | D4 -> Prediction-Model Review Mode |
+| `帮我评估一个nomogram` | D4 -> Prediction-Model Review Mode |
+| `帮我评估一个风险评分模型` | D4 -> Prediction-Model Review Mode |
 | `帮我翻译全文` | Revision / Polishing Mode |
 | `帮我润色` | Revision / Polishing Mode |
 | `帮我收到审稿意见不知道先干嘛` | Paper-Workflow Awareness Mode |
@@ -507,6 +542,41 @@ Return a bundle containing:
 
 Within `cycwrite`, do not fake execution of those specialist functions. Instead, adopt their standards, ask for the minimum missing material, keep outputs traceable, and downgrade the output level when the evidence or runtime substrate is not actually present.
 
+## Capability Gap / Self-Update Handling
+
+When the requested task exceeds what `academic-write-all-skill` can safely do with its current absorbed capability set, use this escalation order:
+
+1. **Check bundled references and templates first**
+   - read the relevant material in `references/`
+   - use `references/capability-map.md`, `references/opencode-skill-absorption-map.md`, and `references/external-project-absorption-map.md` to understand what is already absorbed versus deliberately omitted
+   - inspect `assets/templates/lessons_memory.md` when the task suggests a recurring gap or an improvable pattern
+
+2. **Borrow from stronger local skills before inventing a new approach**
+   - if the gap is retrieval-heavy, use `research-lit`, `pubmed-database`, `arxiv`, or `citation-management` logic
+   - if the gap is review-heavy, use `academic-paper-reviewer` or review-pipeline style logic
+   - if the gap is format / compile / venue specific, use `latex-compile-qa` or `venue-templates` logic
+   - if the gap is install / distribution / skill-structure related, use `skill-creator`, `add-skill`, or `opencode-agent-creator` logic
+
+3. **Only then learn from external projects or GitHub examples**
+   - prefer official docs, maintained GitHub repositories, or clearly implementable patterns
+   - absorb concepts and implementation patterns, not entire projects blindly
+   - treat external examples as provisional learning until they are reconciled with this skill's integrity rules and routing model
+
+4. **Record the gap and what was learned**
+   - if a new pattern materially improves future handling, store it in the lessons-memory style format
+   - update routing or references only when the learned pattern is stable enough to improve future outputs
+
+### Hard rules for self-update
+- never claim a new capability is native just because an external project demonstrates it
+- never fabricate local-skill behavior that was not actually invoked or available
+- never import GitHub patterns that weaken citation verification, evidence provenance, or downgrade honesty
+- never let self-update bypass integrity gates, placeholder rules, or claim-evidence-citation traceability
+
+### Good self-update language
+- `This part exceeds the current core skill; I am borrowing the retrieval pattern from a stronger local research skill.`
+- `The current package does not natively implement this step, so I am using a GitHub/official-doc pattern as a bounded reference, not as guaranteed runtime support.`
+- `I can continue with a downgraded evidence-aware output now, and treat the missing capability as a future improvement target.`
+
 ## External Reference Files
 
 - `references/literature-search-and-screening.md` — literature search strategy, screening, evidence extraction, and citation-governance handoff
@@ -517,6 +587,7 @@ Within `cycwrite`, do not fake execution of those specialist functions. Instead,
 - `references/section-workflows.md` — deep section drafting rules
 - `references/review-routing-and-gates.md` — review-type routing and evidence gates
 - `references/review-and-submission.md` — review writing, journal selection, pre-review, rebuttal, and submission workflows
+- `references/prediction-model-review.md` — prediction-model review/appraisal workflow for scores, nomograms, and risk models
 - `references/microtasks-and-operations.md` — high-frequency late-stage academic operations
 - `references/quality-and-integrity.md` — anti-hallucination, citation, evidence, translation, and polishing rules
 - `references/agent-collaboration.md` — how companion agents, scripts, templates, and cycwrite collaborate

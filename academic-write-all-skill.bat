@@ -5,8 +5,8 @@ set "ROOT=%~dp0"
 set "PY=%ROOT%.venv\Scripts\python.exe"
 
 if not exist "%PY%" (
-  echo [cycwrite] runtime missing, bootstrapping first...
-  call "%ROOT%bootstrap_cycwrite_runtime.bat" || exit /b 1
+  echo [academic-write-all-skill] runtime missing, bootstrapping first...
+  call "%ROOT%bootstrap_academic_write_all_skill_runtime.bat" || exit /b 1
 )
 
 "%PY%" "%ROOT%scripts\cycwrite_cli.py" %*

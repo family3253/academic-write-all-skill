@@ -1,15 +1,15 @@
-# cycwrite isolated runtime bootstrap
+# academic-write-all-skill isolated runtime bootstrap
 
 ## Create / refresh the dedicated virtual environment
 
 ```bash
-bootstrap_cycwrite_runtime.bat
+bootstrap_academic_write_all_skill_runtime.bat
 ```
 
 Or just call the top-level launcher once and let it self-bootstrap:
 
 ```bash
-cycwrite.bat --help
+academic-write-all-skill.bat --help
 ```
 
 Equivalent manual steps:
@@ -38,22 +38,22 @@ cycwrite.bat --help
 ### Validate IPubMed workflow
 
 ```bash
-cycwrite.bat ipubmed --output D:\下载\cycwrite_live_ipubmed_run.csv --query MDR-GNB --validate-only
+academic-write-all-skill.bat ipubmed --output D:\下载\academic_write_all_skill_live_ipubmed_run.csv --query MDR-GNB --validate-only
 ```
 
 ### Run DOI acquisition workflow
 
 ```bash
-cycwrite.bat doi-flow 10.7666/d.y1234567 --candidate-output D:\下载\cycwrite_doi_candidate.csv --acquisition-output D:\下载\cycwrite_doi_acquisition.csv --text-output D:\下载\cycwrite_doi_text.txt
-cycwrite.bat handoff --project-dir D:\下载\cycwrite_handoff_project --candidate-csv D:\下载\cycwrite_doi_candidate.csv --acquisition-csv D:\下载\cycwrite_doi_acquisition.csv --text-file D:\下载\cycwrite_doi_text.txt
+academic-write-all-skill.bat doi-flow 10.7666/d.y1234567 --candidate-output D:\下载\academic_write_all_skill_doi_candidate.csv --acquisition-output D:\下载\academic_write_all_skill_doi_acquisition.csv --text-output D:\下载\academic_write_all_skill_doi_text.txt
+academic-write-all-skill.bat handoff --project-dir D:\下载\academic_write_all_skill_handoff_project --candidate-csv D:\下载\academic_write_all_skill_doi_candidate.csv --acquisition-csv D:\下载\academic_write_all_skill_doi_acquisition.csv --text-file D:\下载\academic_write_all_skill_doi_text.txt
 ```
 
 ## Project lifecycle shortcuts
 
 ```bash
-cycwrite.bat project-init D:\下载\cycwrite_project --force
-cycwrite.bat project-status D:\下载\cycwrite_project
-cycwrite.bat project-gate D:\下载\cycwrite_project
+academic-write-all-skill.bat project-init D:\下载\academic_write_all_skill_project --force
+academic-write-all-skill.bat project-status D:\下载\academic_write_all_skill_project
+academic-write-all-skill.bat project-gate D:\下载\academic_write_all_skill_project
 ```
 
 ## Notes

@@ -89,8 +89,8 @@ academic-write-all-skill/
 ├── CHANGELOG.md
 ├── evals/
 ├── requirements-cycwrite.txt
-├── bootstrap_cycwrite_runtime.bat
-├── cycwrite.bat
+├── bootstrap_academic_write_all_skill_runtime.bat
+├── academic-write-all-skill.bat
 ├── references/
 ├── scripts/
 └── assets/templates/
@@ -220,7 +220,7 @@ Typical install targets:
 If you want the runtime helpers available locally:
 
 ```bat
-bootstrap_cycwrite_runtime.bat
+bootstrap_academic_write_all_skill_runtime.bat
 ```
 
 This script:
@@ -232,7 +232,7 @@ This script:
 Then use:
 
 ```bat
-cycwrite.bat <command> [...args]
+academic-write-all-skill.bat <command> [...args]
 ```
 
 ### Option 2: Manual Python setup

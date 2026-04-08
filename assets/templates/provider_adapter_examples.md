@@ -112,9 +112,14 @@ python scripts/cycwrite_cli.py awas-write-zotero-items \
 
 ```bash
 python scripts/cycwrite_cli.py awas-analyze-markdown-refs draft.md --section-marker "参考文献（前言部分）"
+python scripts/cycwrite_cli.py awas-extract-markdown-ref-candidates draft.md --ref-id 3 --ref-id 18
+python scripts/cycwrite_cli.py awas-ensure-zotero-collection --name cpu
+python scripts/cycwrite_cli.py awas-word-probe processes
 python scripts/cycwrite_cli.py awas-word-probe zotero-state --limit 10
 python scripts/cycwrite_cli.py awas-word-run-zotero-citation
 ```
+
+The repository deliberately does **not** ship the older SendKeys-based Zotero picker experiments as first-class commands. Those scripts depended on fragile foreground window state and were kept out of the public runtime layer on purpose.
 
 ## Validation-only mode
 

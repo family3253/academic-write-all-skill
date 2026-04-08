@@ -149,6 +149,24 @@ def cmd_awas_word_run_zotero_citation(args: argparse.Namespace) -> int:
     return run("awas_word_run_zotero_citation.py", *extra)
 
 
+def cmd_awas_extract_markdown_ref_candidates(args: argparse.Namespace) -> int:
+    extra: list[str] = [args.markdown_path, "--section-marker", args.section_marker]
+    for ref_id in args.ref_id:
+        extra.extend(["--ref-id", ref_id])
+    return run("awas_extract_markdown_ref_candidates.py", *extra)
+
+
+def cmd_awas_ensure_zotero_collection(args: argparse.Namespace) -> int:
+    extra: list[str] = ["--name", args.name]
+    if args.api_key:
+        extra.extend(["--api-key", args.api_key])
+    if args.user_id:
+        extra.extend(["--user-id", args.user_id])
+    if args.library_type:
+        extra.extend(["--library-type", args.library_type])
+    return run("awas_ensure_zotero_collection.py", *extra)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Unified CLI for cycwrite runtime workflows."
@@ -254,6 +272,25 @@ def build_parser() -> argparse.ArgumentParser:
     awas_refs.add_argument("--preview-count", type=int, default=8)
     awas_refs.set_defaults(func=cmd_awas_analyze_markdown_refs)
 
+    awas_extract_refs = subparsers.add_parser(
+        "awas-extract-markdown-ref-candidates",
+        help="Extract selected numbered reference entries from a markdown references section.",
+    )
+    awas_extract_refs.add_argument("markdown_path")
+    awas_extract_refs.add_argument("--section-marker", default="参考文献（前言部分）")
+    awas_extract_refs.add_argument("--ref-id", action="append", required=True)
+    awas_extract_refs.set_defaults(func=cmd_awas_extract_markdown_ref_candidates)
+
+    awas_collection = subparsers.add_parser(
+        "awas-ensure-zotero-collection",
+        help="Ensure a top-level Zotero collection exists and return its key.",
+    )
+    awas_collection.add_argument("--name", required=True)
+    awas_collection.add_argument("--api-key", default="")
+    awas_collection.add_argument("--user-id", default="")
+    awas_collection.add_argument("--library-type", default="")
+    awas_collection.set_defaults(func=cmd_awas_ensure_zotero_collection)
+
     awas_word_probe = subparsers.add_parser(
         "awas-word-probe",
         help="Inspect the current Word automation state used by AWAS Word/Zotero workflows.",
@@ -267,6 +304,7 @@ def build_parser() -> argparse.ArgumentParser:
             "macros",
             "zotero-state",
             "dump-fields",
+            "processes",
         ],
     )
     awas_word_probe.add_argument("--limit", type=int)

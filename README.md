@@ -321,6 +321,8 @@ python scripts/cycwrite_cli.py --help
 - `awas-fetch-zotero-items`
 - `awas-write-zotero-items`
 - `awas-analyze-markdown-refs`
+- `awas-extract-markdown-ref-candidates`
+- `awas-ensure-zotero-collection`
 - `awas-word-probe`
 - `awas-word-run-zotero-citation`
 
@@ -370,11 +372,16 @@ python scripts/cycwrite_cli.py awas-write-zotero-items \
   --input assets/templates/awas_zotero_items.example.json
 
 python scripts/cycwrite_cli.py awas-analyze-markdown-refs draft.md --section-marker "参考文献（前言部分）"
+python scripts/cycwrite_cli.py awas-extract-markdown-ref-candidates draft.md --ref-id 3 --ref-id 18
+python scripts/cycwrite_cli.py awas-ensure-zotero-collection --name cpu
+python scripts/cycwrite_cli.py awas-word-probe processes
 python scripts/cycwrite_cli.py awas-word-probe zotero-state --limit 10
 python scripts/cycwrite_cli.py awas-word-run-zotero-citation
 ```
 
 These additions are the OpenClaw-facing AWAS runtime layer inside the existing repository: the skill remains installable for OpenCode and OpenClaw, while the runtime helpers expose the underlying Word/Zotero/MCP automation in a reusable, public-safe way.
+
+What was *not* absorbed from the original local experiment folder: several SendKeys-based Zotero picker scripts that tried to drive foreground dialogs directly. They were intentionally left out because they depend on brittle UI timing and window focus state, which makes them a poor public runtime default for either OpenCode or OpenClaw.
 
 ## 实际使用方式 / How To Use The Skill In Practice
 

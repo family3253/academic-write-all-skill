@@ -26,6 +26,8 @@ def main() -> int:
         run(str(CLI), "awas-fetch-zotero-items", "--help")
         run(str(CLI), "awas-write-zotero-items", "--help")
         run(str(CLI), "awas-analyze-markdown-refs", "--help")
+        run(str(CLI), "awas-extract-markdown-ref-candidates", "--help")
+        run(str(CLI), "awas-ensure-zotero-collection", "--help")
         run(str(CLI), "awas-word-probe", "--help")
         run(str(CLI), "awas-word-run-zotero-citation", "--help")
         run(str(CLI), "project-init", str(SMOKE_DIR), "--force")

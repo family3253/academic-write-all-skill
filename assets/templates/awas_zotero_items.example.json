@@ -1,5 +1,36 @@
 [
   {
+    "itemType": "journalArticle",
+    "title": "MIMIC-IV, a freely accessible electronic health record dataset",
+    "creators": [
+      {
+        "creatorType": "author",
+        "firstName": "Alistair E. W.",
+        "lastName": "Johnson"
+      },
+      {
+        "creatorType": "author",
+        "firstName": "Lucas",
+        "lastName": "Bulgarelli"
+      }
+    ],
+    "publicationTitle": "Scientific Data",
+    "date": "2023",
+    "volume": "10",
+    "issue": "1",
+    "pages": "1",
+    "DOI": "10.1038/s41597-022-01899-x",
+    "url": "https://doi.org/10.1038/s41597-022-01899-x",
+    "tags": [
+      {
+        "tag": "awas-example"
+      },
+      {
+        "tag": "journal-article"
+      }
+    ]
+  },
+  {
     "itemType": "report",
     "title": "Global action plan on antimicrobial resistance",
     "creators": [
@@ -13,6 +44,30 @@
     "tags": [
       {
         "tag": "awas-example"
+      }
+    ]
+  },
+  {
+    "itemType": "report",
+    "title": "Political declaration of the high-level meeting on antimicrobial resistance",
+    "creators": [
+      {
+        "creatorType": "author",
+        "name": "United Nations General Assembly"
+      }
+    ],
+    "institution": "United Nations",
+    "reportType": "Political declaration",
+    "reportNumber": "A/79/L.5",
+    "place": "New York",
+    "date": "2024",
+    "url": "https://docs.un.org/en/A/79/L.5?direct=true",
+    "tags": [
+      {
+        "tag": "awas-example"
+      },
+      {
+        "tag": "un-report"
       }
     ]
   }

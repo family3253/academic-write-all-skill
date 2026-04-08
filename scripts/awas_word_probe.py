@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from typing import Any
 
 
@@ -117,6 +118,32 @@ def cmd_dump_fields(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_processes(_args: argparse.Namespace) -> int:
+    ps_script = (
+        "$procs = Get-Process WINWORD,Zotero -ErrorAction SilentlyContinue | "
+        "Select-Object ProcessName,Id,MainWindowTitle,Path; "
+        "$procs | ConvertTo-Json -Depth 3"
+    )
+    proc = subprocess.run(
+        ["pwsh", "-NoProfile", "-Command", ps_script],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    if proc.returncode != 0:
+        raise SystemExit(
+            proc.stderr or proc.stdout or "PowerShell process snapshot failed."
+        )
+    output = proc.stdout.strip()
+    if not output:
+        print("[]")
+        return 0
+    print(output)
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Probe the current Microsoft Word automation state for AWAS workflows."
@@ -156,6 +183,12 @@ def build_parser() -> argparse.ArgumentParser:
     dump_fields.add_argument("--limit", type=int, default=50)
     dump_fields.add_argument("--preview-chars", type=int, default=200)
     dump_fields.set_defaults(func=cmd_dump_fields)
+
+    processes = subparsers.add_parser(
+        "processes",
+        help="Show current WINWORD and Zotero processes with visible window titles when available.",
+    )
+    processes.set_defaults(func=cmd_processes)
 
     return parser
 

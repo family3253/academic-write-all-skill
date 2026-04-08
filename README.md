@@ -34,8 +34,10 @@ Use these when the task is article-, thesis-, or chapter-centric.
 
 - 选题、开题、研究问题收束 / topic framing and proposal support
 - 论文提纲、章节结构、段落任务拆分 / paper outlines, chapter structures, paragraph planning
+- 选题收敛、可行性筛选、小切口题目优化 / topic narrowing, feasibility filtering, and small-scope thesis framing
 - `Introduction`、`Methods`、`Results`、`Discussion`、`Abstract`、`Conclusion` 写作 / section drafting
 - 学位论文与 chapter-based 写作 / thesis and dissertation workflows
+- 致谢、答辩PPT叙事提纲 / acknowledgments and defense-PPT storyline support
 - 摘要重写 / abstract rewriting
 - 引用检查 / citation checks
 - 格式转换意识 / format-convert awareness
@@ -61,6 +63,7 @@ Use these when the task is review-corpus-centric.
 Use these when the draft already exists and the job is narrower.
 
 - 润色与重写 / polishing and rewriting
+- 诊断式润色与分段降重 / diagnosis-first polishing and paragraph-level similarity reduction
 - 翻译 / translation
 - 降 AI 味 / anti-AI-tone cleanup
 - response package / reviewer response materials
@@ -196,13 +199,18 @@ This version absorbs capability families from:
 - `cycwrite`
 - 早期 paper / review 技能族 / earlier paper and review skills
 - 旧项目 `academic-write`
+- 七份毕业论文 AI 写作课程的流程模式（以规则和工作流形式吸收，而非照搬课程原文） / workflow patterns distilled from seven AI-assisted thesis-writing course handouts, absorbed as rules rather than copied lecture prose
 
 ### 强化后的方向 / What Became Stronger
 - 更强的 outline-first 路由 / stronger outline-first routing
+- 更强的 thesis topic narrowing / feasibility filtering / title optimization
 - abstract-only / abstract rewrite / citation-check / format-convert
+- stronger thesis front-matter handling for abstract/title/acknowledgments
 - revision-coach
 - review output-level gating
 - corpus-first review logic
+- fact-first methods/results/discussion and separated conclusion/future-work workflows
+- staged reference-format checking and defense-PPT storyline support
 - prediction-model review / appraisal
 - more native prediction-model appraisal with TRIPOD-like / PROBAST-like / CHARMS-like built-in structure
 - research lifecycle routing

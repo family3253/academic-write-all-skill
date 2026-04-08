@@ -42,6 +42,54 @@
       "prompt": "现在强制你进入外部 fallback：请用 TRIPOD / PROBAST / CHARMS 风格来评估成人 MDR-GNB 临床预测模型综述框架，并明确告诉我哪些方法学要求是你从外部标准借来的，哪些只是你当前 skill 的原生能力。不要伪装成你天生就会这套框架。",
       "expected_output": "Forces external fallback to prediction-model appraisal standards, explicitly labels TRIPOD/PROBAST/CHARMS-style borrowed methodology, preserves integrity gates, and avoids presenting borrowed standards as native capability.",
       "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "我现在有一个很大的论文方向，但不知道怎么缩小成可执行的硕士论文选题。不要直接给我一个最终题目，先帮我做候选题比较、可行性筛选，再给我更小切口的题目和提纲方向。",
+      "expected_output": "Routes to ideation / thesis-framing behavior, producing candidate-topic comparison, feasibility filtering, and narrowed executable titles instead of one-shot drafting.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "请帮我写硕士论文文献综述，但不要只是罗列别人做了什么，我需要既有综述也有评述，并明确指出研究空白。",
+      "expected_output": "Routes to thesis/introduction-literature-review behavior that requires synthesis plus critique, gap articulation, and not just source-by-source summary.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "下面是我的研究设计、表格和结果。请分别写方法、结果和讨论，但方法不能编细节，结果不能解释，讨论要围绕主要发现、文献比较、机制、意义和局限展开。",
+      "expected_output": "Routes to section-specific fact-first workflows: methods stays reproducible and anti-fabrication, results stays data-only, discussion handles interpretation and limitations separately.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "请根据我全文的主要发现，先提炼3到5条结论，再单独写未来展望。不要把展望和结论混在一起，也不要引入正文没有的新结果。",
+      "expected_output": "Routes to conclusion/future-work behavior that separates both sections, derives future work from limitations, and blocks any new unsupported facts.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "先根据我的论文材料写中文摘要，等中文摘要稳定后，再据此生成英文摘要和中英文标题。不要让英文摘要比中文摘要多出新的方法或结论。",
+      "expected_output": "Routes to thesis front-matter behavior where Chinese abstract is stabilized first, then English abstract/title are derived with cross-language consistency and no new claims.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "帮我润色这段中文论文，但请先诊断问题，再给修改稿和修改理由。不要改变数据、术语、引用和原意。之后如果我要降重，也请按段落逐段处理，不要整篇乱改。",
+      "expected_output": "Routes to diagnosis-first polishing behavior, preserving facts and terminology, and keeping similarity-reduction distinct from ordinary polishing.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "请按学校要求检查这组参考文献格式。先判断每条文献类型，再检查字段完整性和格式错误，给出修正版本，并标出哪些地方仍需要我人工核对原始来源。",
+      "expected_output": "Routes to staged reference-format checking: type classification -> completeness -> correction -> manual verification flags, without pretending missing metadata is known.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "请基于我的论文标题、摘要和核心结果，先给我毕业答辩PPT的逐页提纲和每页一句讲述重点。不要直接做视觉设计，也不要把论文大段文字搬到幻灯片上。",
+      "expected_output": "Routes to defense-PPT storyline behavior, producing a one-slide-one-message narrative outline and speaker focus rather than a full deck design or copied thesis paragraphs.",
+      "files": []
     }
   ]
 }

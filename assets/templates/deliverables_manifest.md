@@ -4,13 +4,18 @@
 - current_stage:
 - ready_for_handoff:
 - deliverables:
+  - title_set:
   - outline:
   - draft_sections:
+  - abstract_pair:
+  - acknowledgments:
   - claim_mapping:
   - decision_record:
   - gate_report:
   - sentinel_watch_report:
   - citation_authenticity_report:
+  - reference_format_check:
   - response_package:
   - thesis_chapter:
+  - defense_ppt_storyline:
 - notes:

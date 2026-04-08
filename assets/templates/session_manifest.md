@@ -5,6 +5,11 @@
 - review_type:
 - source_plan:
 - current_stage:
+- task_mode:
+- section_type:
+- school_or_venue_rules:
+- chinese_abstract_finalized:
+- manual_verification_needed:
 - upstream_artifacts:
   - candidate_pool:
   - title_abstract_screening:
@@ -12,15 +17,22 @@
   - evidence_extraction:
   - figure_plan:
   - visual_evidence_pack:
+  - thesis_outline:
+  - lecture_notes_or_ocr_memo:
 - downstream_targets:
   - outline:
   - draft_sections:
   - claim_mapping:
   - decision_record:
   - gate_report:
+  - title_set:
+  - abstract_pair:
+  - acknowledgments:
+  - defense_ppt_storyline:
 - memory_artifacts:
   - sentinel_watch_report:
   - lessons_memory:
 - verification_artifacts:
   - citation_authenticity_report:
+  - reference_format_check:
 - notes:

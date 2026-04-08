@@ -37,6 +37,13 @@ If references are incomplete:
 - mark unsupported claims with `[待核实文献]`
 - do not fabricate author-year citations
 
+### Literature review rule for thesis work
+When the user is writing a thesis literature review rather than a short paper introduction:
+- require both `综述` and `评述`
+- do not stop at listing what prior work studied
+- explicitly state where the literature converges, diverges, or leaves a usable gap
+- prefer moving from broad significance -> research status -> controversy/defect -> exact thesis question
+
 ## 2. Methods Workflow
 
 ### Use when
@@ -132,6 +139,24 @@ Do not:
 - limitations should be honest but proportionate
 - future work should be specific, not ceremonial
 
+## 4B. Conclusion / Future Work Workflow
+
+### Use when
+- the body results and discussion are already stable enough to summarize
+- the user needs a final conclusion section, a final outlook section, or both
+
+### Canonical structure
+1. restate the thesis question or objective briefly
+2. summarize the most defensible findings or contributions
+3. clarify what those findings mean within the thesis scope
+4. separate future work from already established conclusions
+
+### Hard rules
+- do not introduce any new result, citation, or factual claim in the conclusion
+- do not merge conclusion and future work into one vague closing paragraph unless the venue explicitly expects that style
+- derive future work from visible limitations, unresolved mechanisms, missing data, or scope boundaries
+- avoid ceremonial phrases such as `future research is needed` without concrete direction
+
 ### Bridge from Results to Discussion
 If Results were drafted from figures/tables, Discussion should:
 - start from the already established result blocks rather than redescribing every panel
@@ -168,6 +193,13 @@ If the workflow is bilingual, preserve alignment of problem, objective, methods,
 ### Thesis abstract note
 For a master's thesis or dissertation abstract, preserve the same logic but allow slightly more context-setting than in a journal abstract when institutional rules require it.
 
+### Chinese -> English abstract rule
+When both Chinese and English abstracts are requested:
+- finalize the Chinese abstract structure first
+- generate the English abstract from the finalized Chinese abstract plus thesis terminology
+- do not let the English version introduce claims, methods, or conclusions absent from the Chinese abstract
+- check title / keywords / abstract alignment across both languages before returning
+
 ## 6. Thesis / Dissertation Chapter Workflow
 
 ### Use when
@@ -189,6 +221,8 @@ For a master's thesis or dissertation abstract, preserve the same logic but allo
 - allow broader context in introduction and discussion chapters than most journals would
 - keep findings/results chapters evidence-led and non-interpretive where required by the discipline
 - if the thesis is article-based, add wrapper text that explains what each paper/chapter contributes to the whole thesis argument
+- if the user is still choosing among multiple topic directions, narrow by feasibility before polishing titles or drafting sections
+- prefer small-scope executable topics over impressive but weakly supported topics
 
 ### Common thesis mistake patterns
 - repeating the same background in every chapter
@@ -235,6 +269,8 @@ Before drafting, it is often useful to create a `chapter-to-thesis synthesis tab
 - reflect topic and contribution
 - avoid hype words unless standard in the field
 - avoid claiming more than the study shows
+- for thesis topic selection, prefer object + issue + angle/method + context over decorative wording
+- when multiple titles are possible, compare them by feasibility, scope control, and alignment with actual data/materials
 
 ### Keyword rules
 - balance precision and discoverability
@@ -245,6 +281,37 @@ Before drafting, it is often useful to create a `chapter-to-thesis synthesis tab
 - each highlight should capture one contribution or finding
 - avoid full-sentence fluff
 - maintain factual traceability to the manuscript body
+
+## 6B. Acknowledgments Workflow
+
+### Use when
+- the user needs a thesis acknowledgments section or a formal thank-you note inside an academic document
+
+### Hard rules
+- acknowledgments must be based on real contributors and real support
+- keep the tone sincere, restrained, and non-theatrical
+- avoid canned emotional language or generic gratitude blocks that could fit any thesis
+- preserve institutional naming, supervisor titles, and contributor roles accurately
+
+## 6C. Defense PPT Storyline Workflow
+
+### Use when
+- the user needs a thesis defense slide outline, speaking outline, or slide-by-slide talking structure
+
+### Canonical structure
+1. background / problem
+2. research objective
+3. method / data
+4. core findings
+5. innovation or value
+6. limitations / future work
+7. thanks / Q&A
+
+### Hard rules
+- one slide should carry one main message
+- slides should compress the thesis narrative, not copy full thesis paragraphs
+- prefer figures, tables, and findings already present in the thesis
+- keep the output at storyline / speaker-outline level unless the user explicitly asks for visual deck production
 
 ## 7. Review-Article Workflow
 

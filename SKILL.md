@@ -27,8 +27,10 @@ Use this skill when the user needs help with any of the following:
 - master's thesis / dissertation chapter planning, chapter-level drafting, or thesis-to-manuscript adaptation
 - section drafting: `Introduction`, `Methods`, `Results`, `Discussion`, abstract, conclusion
 - title, keywords, highlights, graphical abstract copy, or cover letter drafting
+- thesis title optimization, thesis abstract pair drafting, acknowledgment drafting, or defense-PPT storyline planning
 - experiment-to-writing handoff, result interpretation planning, or figure/compile-aware writing coordination
 - translation, polishing, shortening, rewriting, anti-AI-tone revision, or style repair
+- similarity-reduction rewriting, paragraph-level diagnosis-first polishing, or staged reference-format checking
 - pre-submission review, journal-fit evaluation, or acceptance-risk triage
 - reviewer comment response, revision mapping, and rebuttal writing
 - paper outline generation, chapter-by-chapter planning, abstract-only drafting, citation-check, or format-convert requests
@@ -96,6 +98,7 @@ Collect as much of the following as available:
 - citation style if required
 - current stage: idea / outline / partial draft / full draft / revision after review
 - available materials: title, abstract, notes, figures, legends, tables, methods, results, references, reviewer comments
+- available materials: title, abstract, notes, figures, legends, tables, methods, results, references, reviewer comments, thesis outline, school template examples, OCR lecture notes, or chapter summaries
 - retrieval assets if applicable: export CSVs, EndNote/Zotero libraries, institutional access, authorized browser sessions, or provider workstations
 - thesis context if applicable: monograph thesis / article-based thesis / chapter-based thesis, degree level, university or department rules, required front matter / back matter, chapter order
 - hard constraints: word count, section rules, journal scope, deadline, audience
@@ -192,6 +195,8 @@ Available section families:
 - `Conclusion`
 - `Thesis chapter introduction / findings / general discussion / thesis conclusion`
 - `Title / Keywords / Highlights`
+- `Acknowledgments`
+- `Defense PPT storyline / speaking outline`
 
 **REQUIRED REFERENCE:** Use `references/section-workflows.md` for deep section rules.
 
@@ -322,6 +327,8 @@ Revision dimensions may include:
 - de-AI-ification
 - grammar / terminology normalization
 - anti-pattern cleanup for obvious AI-generated prose
+- similarity-reduction rewriting that preserves facts, citations, and terminology
+- diagnosis-first paragraph revision with explicit rationale
 
 **REQUIRED REFERENCES:**
 - `references/microtasks-and-operations.md`
@@ -399,6 +406,9 @@ Examples:
 - abstract compression
 - stats-to-prose conversion
 - reviewer vulnerability scan
+- reference-format staging check
+- thesis defense slide storyline generation
+- topic feasibility filtering and reviewer-style outline logic check
 
 **REQUIRED REFERENCE:** Use `references/microtasks-and-operations.md`.
 
@@ -412,11 +422,18 @@ Examples:
 | `帮我写开题` | Ideation / Proposal Mode |
 | `帮我搭框架` | Outline / Argument Mode |
 | `帮我列论文提纲` | F2 -> `outline-only` |
+| `帮我缩小选题范围` | Ideation / Proposal Mode |
+| `帮我筛选最可行的论文题目` | Ideation / Proposal Mode |
+| `帮我优化论文标题` | Thesis / Dissertation Mode |
 | `帮我写引言` | Section Drafting -> Introduction |
+| `帮我写文献综述` | Thesis / Dissertation Mode |
 | `帮我写方法` | Section Drafting -> Methods |
 | `帮我写结果` | Section Drafting -> Results |
 | `帮我写讨论` | Section Drafting -> Discussion |
 | `帮我写摘要` | Section Drafting -> Abstract |
+| `帮我写英文摘要` | Section Drafting -> Abstract |
+| `帮我写致谢` | Section Drafting -> Acknowledgments |
+| `帮我写结论和展望` | Section Drafting -> Conclusion |
 | `帮我重写摘要` | F2 -> `abstract-only` |
 | `帮我写硕士论文` | Thesis / Dissertation Mode |
 | `帮我搭硕士论文框架` | Thesis / Dissertation Mode |
@@ -437,6 +454,7 @@ Examples:
 | `帮我评估一个风险评分模型` | D4 -> Prediction-Model Review Mode |
 | `帮我翻译全文` | Revision / Polishing Mode |
 | `帮我润色` | Revision / Polishing Mode |
+| `帮我降重` | Revision / Polishing Mode |
 | `帮我收到审稿意见不知道先干嘛` | Paper-Workflow Awareness Mode |
 | `帮我检查这篇稿子现在处在哪个阶段` | Paper-Workflow Awareness Mode |
 | `帮我把审稿意见整理成修订路线图` | F2 -> `revision-coach` |
@@ -448,6 +466,8 @@ Examples:
 | `帮我检查引用` | F2 -> `citation-check` |
 | `帮我转LaTeX` | F2 -> `format-convert` |
 | `帮我转换引用格式` | F2 -> `format-convert` |
+| `帮我做答辩PPT提纲` | Microtask / Operations Mode |
+| `帮我生成答辩讲稿` | Microtask / Operations Mode |
 | `帮我根据图表推进论文写作` | F2 -> `figure-and-compile-aware` |
 | `帮我检查逻辑` | Microtask / Operations Mode |
 | `帮我改参考文献格式` | Microtask / Operations Mode |

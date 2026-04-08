@@ -21,6 +21,11 @@ This file captures high-frequency late-stage academic writing operations that ap
 - issue list + revised version
 - original / revised / rationale table
 
+### Recommended workflow
+- diagnose first
+- then revise paragraph by paragraph
+- then explain what changed and what still requires manual verification
+
 ## 2. Rewriting and De-duplication
 
 ### Use when
@@ -33,6 +38,7 @@ This file captures high-frequency late-stage academic writing operations that ap
 - do not replace field-specific terms casually
 - do not distort citation relationships
 - if asked to lower AI-detection risk, improve prose naturally rather than gaming detectors with nonsense variation
+- if the user is responding to a similarity report, work on the flagged passages first instead of rewriting the whole thesis blindly
 
 ## 3. Translation Operations
 
@@ -75,6 +81,13 @@ This file captures high-frequency late-stage academic writing operations that ap
 - do not silently rewrite the manuscript if the user asked only for checking
 - distinguish error correction from substantive rewriting
 
+### Staged reference check workflow
+1. classify reference type
+2. check completeness of metadata fields
+3. check punctuation and field order against the target standard
+4. provide corrected version
+5. flag anything that still requires manual verification from the original source
+
 ## 6. Abstract / Title / Cover Letter Operations
 
 ### Abstract tasks
@@ -82,6 +95,12 @@ This file captures high-frequency late-stage academic writing operations that ap
 - revise using context-content-conclusion structure
 - align with structured abstract requirements
 - compress or sharpen abstract
+
+### Thesis front-matter additions
+- produce Chinese abstract from structured thesis inputs first
+- derive English abstract from the finalized Chinese abstract plus controlled terminology
+- generate multiple title options and compare by scope accuracy and feasibility
+- draft acknowledgments from real contributor notes with restrained tone
 
 ### Title tasks
 - generate multiple candidate titles
@@ -149,3 +168,36 @@ Output options:
 - fit memo
 - readiness checklist
 - vulnerability matrix
+
+## 11. Topic Narrowing and Outline Logic Checks
+
+### Use when
+- the user has a broad thesis direction but not a stable executable topic
+- the outline exists but the chapter logic is weak or repetitive
+
+### Typical outputs
+- candidate topic comparison table
+- feasibility filter table
+- narrowed title set with rationale
+- reviewer-style outline logic checklist
+
+### Rules
+- prefer small, executable topics over broad and fragile ones
+- compare options by data/material availability, novelty level, workload, and chapter fit
+- if the outline is already drafted, check whether each chapter has a distinct job and whether the order mirrors the thesis argument
+
+## 12. Defense PPT Storyline Operations
+
+### Use when
+- the user needs a slide outline or speaking narrative for a thesis defense
+
+### Typical outputs
+- slide-by-slide storyline
+- one-slide-one-message bullet structure
+- speaker-note skeleton
+- likely defense-question checklist
+
+### Rules
+- keep the output focused on narrative structure rather than slide aesthetics
+- compress thesis content into background -> objective -> method -> core findings -> innovation/value -> limitations/future work -> thanks/Q&A
+- prefer visual evidence suggestions over dense bullet dumping

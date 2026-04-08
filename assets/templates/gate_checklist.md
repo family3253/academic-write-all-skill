@@ -30,6 +30,12 @@
 - [ ] results prose is anchored to visible artifacts
 - [ ] unresolved gaps are marked, not hidden
 - [ ] deliverables manifest is updated
+- [ ] thesis topic / title scope is executable rather than overbroad
+- [ ] literature review includes both synthesis and critique where applicable
+- [ ] conclusion and future work are separated when both are requested
+- [ ] English abstract does not outrun the finalized Chinese abstract
+- [ ] paragraph-level polishing preserved facts, terms, and numerical meaning
+- [ ] reference-format corrections that need source metadata are flagged for manual verification
 
 ## Gate 5 — Sentinel / Final Handoff
 
@@ -38,3 +44,4 @@
 - [ ] gate failures are reconciled with handoff status
 - [ ] manifest paths match actual files
 - [ ] no unsafe `ready_for_handoff: yes` remains
+- [ ] defense PPT storyline keeps one slide = one core message when that deliverable exists

@@ -30,6 +30,7 @@ If evidence is missing, use one of three moves:
 - fabricated “supportive” citations
 - fake recent literature summaries
 - backfilled citations that merely sound plausible
+- lecture-derived or OCR-derived writing heuristics presented as if they were source citations
 
 ### Good fallback language
 - `[待核实文献]`
@@ -47,6 +48,7 @@ Distinguish clearly between:
 - assistant inferences from materials
 - conventional academic phrasing scaffolds
 - speculative suggestions for future revision
+- OCR lecture notes or teaching heuristics that may guide workflow but do not count as evidence for the thesis claim itself
 
 ## 4. Style Polishing Rules
 
@@ -64,6 +66,7 @@ Distinguish clearly between:
 - formulaic AI cadence
 - faux-authoritative claims
 - ornamental complexity that weakens meaning
+- polishing that silently changes statistical direction, scope, or contributor identity
 
 ## 5. De-AI-ification Rules
 
@@ -73,6 +76,11 @@ When reducing obvious AI tone:
 - replace generic evaluative words with discipline-specific descriptions
 - keep concrete nouns and verbs stronger than vague abstractions
 - preserve actual meaning rather than merely making the text sound “human”
+
+### Similarity-reduction boundary
+- similarity reduction is not license to alter facts, references, sample sizes, variable names, or conclusions
+- prefer restructuring, sentence reordering, and compression over mechanical synonym swapping
+- work paragraph by paragraph when the user is responding to a plagiarism/similarity report
 
 ## 6. Translation Rules
 
@@ -88,6 +96,12 @@ When reducing obvious AI tone:
 - journal-style recasting
 - sentence splitting or merging
 - rhetoric tightening
+
+## 6B. Acknowledgment Integrity Rules
+
+- never invent people, institutions, grants, or support details
+- keep gratitude claims proportional to the actual contribution described by the user
+- when details are incomplete, ask for names/roles rather than fabricating elegant generic thanks
 
 ## 7. Statistical Interpretation Rules
 
@@ -107,3 +121,6 @@ Before outputting academic prose, verify:
 - reviewer response claims correspond to actual edits or proposed edits
 - translation did not distort meaning
 - polishing did not introduce new facts
+- future work statements come from visible limitations rather than generic ceremony
+- English abstract does not outrun the finalized Chinese abstract when both are requested
+- reference-format corrections that depend on missing metadata are marked for manual verification

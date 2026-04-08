@@ -70,6 +70,52 @@ Use the generic adapter when a provider is only accessible through a browser wor
 python scripts/browser_workstation_adapter.py --config "assets/templates/ipubmed_browser_workflow.json" --output "02_candidate_pool_and_screening/candidate_pool.csv" --query "MDR-GNB"
 ```
 
+## AWAS Word + Zotero + MCP helpers
+
+These helpers are designed for the AWAS runtime layer that now ships inside this repository for both OpenCode and OpenClaw installations.
+
+1. Copy the runtime environment example and fill your own secrets locally:
+
+```bash
+copy assets\templates\awas_runtime.env.example .env
+```
+
+2. Copy the fastmcp config example and replace the placeholder Zotero values:
+
+```bash
+copy assets\templates\awas_fastmcp_zotero_config.example.json awas_fastmcp_zotero_config.local.json
+```
+
+3. Export Zotero metadata through fastmcp:
+
+```bash
+python scripts/cycwrite_cli.py awas-export-zotero-metadata \
+  --config awas_fastmcp_zotero_config.local.json \
+  --item journal=7DIDVIGX \
+  --item report=SCWKNGDV \
+  --output-dir outputs/awas-mcp-exports
+```
+
+4. Fetch or create Zotero records through the Web API:
+
+```bash
+python scripts/cycwrite_cli.py awas-fetch-zotero-items \
+  --item 7DIDVIGX \
+  --item SCWKNGDV \
+  --output outputs/awas-zotero-items.json
+
+python scripts/cycwrite_cli.py awas-write-zotero-items \
+  --input assets/templates/awas_zotero_items.example.json
+```
+
+5. Analyze a markdown reference section or inspect the live Word automation state:
+
+```bash
+python scripts/cycwrite_cli.py awas-analyze-markdown-refs draft.md --section-marker "参考文献（前言部分）"
+python scripts/cycwrite_cli.py awas-word-probe zotero-state --limit 10
+python scripts/cycwrite_cli.py awas-word-run-zotero-citation
+```
+
 ## Validation-only mode
 
 Before running a browser adapter, inspect the rendered config:

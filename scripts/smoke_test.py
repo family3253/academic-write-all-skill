@@ -22,6 +22,12 @@ def main() -> int:
     try:
         run("-m", "compileall", "scripts")
         run(str(CLI), "--help")
+        run(str(CLI), "awas-export-zotero-metadata", "--help")
+        run(str(CLI), "awas-fetch-zotero-items", "--help")
+        run(str(CLI), "awas-write-zotero-items", "--help")
+        run(str(CLI), "awas-analyze-markdown-refs", "--help")
+        run(str(CLI), "awas-word-probe", "--help")
+        run(str(CLI), "awas-word-run-zotero-citation", "--help")
         run(str(CLI), "project-init", str(SMOKE_DIR), "--force")
         run(str(CLI), "project-status", str(SMOKE_DIR))
         run(str(CLI), "project-gate", str(SMOKE_DIR))

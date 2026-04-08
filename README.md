@@ -287,6 +287,16 @@ python -m venv .venv
 .venv\Scripts\python -m playwright install chromium
 ```
 
+### AWAS automation environment
+
+The repository now ships a public-safe AWAS automation layer for Word + Zotero + MCP workflows. Use the examples under `assets/templates/` instead of hardcoding paths or secrets:
+
+- `assets/templates/awas_runtime.env.example`
+- `assets/templates/awas_fastmcp_zotero_config.example.json`
+- `assets/templates/awas_zotero_items.example.json`
+
+Real keys, library IDs, user IDs, and local executable paths should stay in local `.env` files or `*.local.json` files that are excluded from git.
+
 ## CLI 用法 / CLI Usage
 
 runtime CLI 位于 `scripts/cycwrite_cli.py`。  
@@ -307,6 +317,12 @@ python scripts/cycwrite_cli.py --help
 - `project-init`
 - `project-status`
 - `project-gate`
+- `awas-export-zotero-metadata`
+- `awas-fetch-zotero-items`
+- `awas-write-zotero-items`
+- `awas-analyze-markdown-refs`
+- `awas-word-probe`
+- `awas-word-run-zotero-citation`
 
 ### 示例 / Examples
 
@@ -336,6 +352,29 @@ python scripts/cycwrite_cli.py doi-flow 10.1000/example-doi \
   --acquisition-output fulltext_acquisition.csv \
   --text-output artifact.txt
 ```
+
+运行 AWAS Word + Zotero + MCP helpers / Run the AWAS Word + Zotero + MCP helpers:
+
+```bash
+python scripts/cycwrite_cli.py awas-export-zotero-metadata \
+  --config awas_fastmcp_zotero_config.local.json \
+  --item journal=7DIDVIGX \
+  --item report=SCWKNGDV \
+  --output-dir outputs/awas-mcp-exports
+
+python scripts/cycwrite_cli.py awas-fetch-zotero-items \
+  --item 7DIDVIGX \
+  --output outputs/awas-zotero-items.json
+
+python scripts/cycwrite_cli.py awas-write-zotero-items \
+  --input assets/templates/awas_zotero_items.example.json
+
+python scripts/cycwrite_cli.py awas-analyze-markdown-refs draft.md --section-marker "参考文献（前言部分）"
+python scripts/cycwrite_cli.py awas-word-probe zotero-state --limit 10
+python scripts/cycwrite_cli.py awas-word-run-zotero-citation
+```
+
+These additions are the OpenClaw-facing AWAS runtime layer inside the existing repository: the skill remains installable for OpenCode and OpenClaw, while the runtime helpers expose the underlying Word/Zotero/MCP automation in a reusable, public-safe way.
 
 ## 实际使用方式 / How To Use The Skill In Practice
 

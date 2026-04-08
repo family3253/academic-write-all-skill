@@ -94,6 +94,61 @@ def cmd_project_gate(args: argparse.Namespace) -> int:
     return run("generate_gate_report.py", args.project_dir)
 
 
+def cmd_awas_export_zotero_metadata(args: argparse.Namespace) -> int:
+    extra: list[str] = ["--config", args.config, "--output-dir", args.output_dir]
+    for item in args.item:
+        extra.extend(["--item", item])
+    for output_format in args.format or []:
+        extra.extend(["--format", output_format])
+    return run("awas_export_zotero_metadata.py", *extra)
+
+
+def cmd_awas_fetch_zotero_items(args: argparse.Namespace) -> int:
+    extra: list[str] = ["--output", args.output]
+    for item in args.item:
+        extra.extend(["--item", item])
+    if args.api_key:
+        extra.extend(["--api-key", args.api_key])
+    if args.user_id:
+        extra.extend(["--user-id", args.user_id])
+    if args.library_type:
+        extra.extend(["--library-type", args.library_type])
+    return run("awas_fetch_zotero_items.py", *extra)
+
+
+def cmd_awas_write_zotero_items(args: argparse.Namespace) -> int:
+    extra: list[str] = ["--input", args.input]
+    if args.api_key:
+        extra.extend(["--api-key", args.api_key])
+    if args.user_id:
+        extra.extend(["--user-id", args.user_id])
+    if args.library_type:
+        extra.extend(["--library-type", args.library_type])
+    return run("awas_write_zotero_items.py", *extra)
+
+
+def cmd_awas_analyze_markdown_refs(args: argparse.Namespace) -> int:
+    extra: list[str] = [args.markdown_path, "--section-marker", args.section_marker]
+    extra.extend(["--preview-count", str(args.preview_count)])
+    return run("awas_analyze_markdown_refs.py", *extra)
+
+
+def cmd_awas_word_probe(args: argparse.Namespace) -> int:
+    extra: list[str] = [args.probe_command]
+    if args.limit is not None:
+        extra.extend(["--limit", str(args.limit)])
+    if args.preview_chars is not None:
+        extra.extend(["--preview-chars", str(args.preview_chars)])
+    return run("awas_word_probe.py", *extra)
+
+
+def cmd_awas_word_run_zotero_citation(args: argparse.Namespace) -> int:
+    extra: list[str] = []
+    if args.anchor_text is not None:
+        extra.extend(["--anchor-text", args.anchor_text])
+    return run("awas_word_run_zotero_citation.py", *extra)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Unified CLI for cycwrite runtime workflows."
@@ -156,6 +211,76 @@ def build_parser() -> argparse.ArgumentParser:
     )
     project_gate.add_argument("project_dir")
     project_gate.set_defaults(func=cmd_project_gate)
+
+    awas_export = subparsers.add_parser(
+        "awas-export-zotero-metadata",
+        help="Export Zotero item metadata through fastmcp into Markdown/BibTeX artifacts.",
+    )
+    awas_export.add_argument("--config", required=True)
+    awas_export.add_argument("--item", action="append", required=True)
+    awas_export.add_argument(
+        "--format", action="append", choices=["markdown", "bibtex"]
+    )
+    awas_export.add_argument("--output-dir", default="outputs/awas-mcp-exports")
+    awas_export.set_defaults(func=cmd_awas_export_zotero_metadata)
+
+    awas_fetch = subparsers.add_parser(
+        "awas-fetch-zotero-items",
+        help="Fetch Zotero items by key through the Web API and save them as JSON.",
+    )
+    awas_fetch.add_argument("--item", action="append", required=True)
+    awas_fetch.add_argument("--output", required=True)
+    awas_fetch.add_argument("--api-key", default="")
+    awas_fetch.add_argument("--user-id", default="")
+    awas_fetch.add_argument("--library-type", default="")
+    awas_fetch.set_defaults(func=cmd_awas_fetch_zotero_items)
+
+    awas_write = subparsers.add_parser(
+        "awas-write-zotero-items",
+        help="Create Zotero items from a JSON payload through the Web API.",
+    )
+    awas_write.add_argument("--input", required=True)
+    awas_write.add_argument("--api-key", default="")
+    awas_write.add_argument("--user-id", default="")
+    awas_write.add_argument("--library-type", default="")
+    awas_write.set_defaults(func=cmd_awas_write_zotero_items)
+
+    awas_refs = subparsers.add_parser(
+        "awas-analyze-markdown-refs",
+        help="Analyze citation coverage against a numbered markdown reference list.",
+    )
+    awas_refs.add_argument("markdown_path")
+    awas_refs.add_argument("--section-marker", default="参考文献（前言部分）")
+    awas_refs.add_argument("--preview-count", type=int, default=8)
+    awas_refs.set_defaults(func=cmd_awas_analyze_markdown_refs)
+
+    awas_word_probe = subparsers.add_parser(
+        "awas-word-probe",
+        help="Inspect the current Word automation state used by AWAS Word/Zotero workflows.",
+    )
+    awas_word_probe.add_argument(
+        "probe_command",
+        choices=[
+            "docmeta",
+            "addins",
+            "commandbars",
+            "macros",
+            "zotero-state",
+            "dump-fields",
+        ],
+    )
+    awas_word_probe.add_argument("--limit", type=int)
+    awas_word_probe.add_argument("--preview-chars", type=int)
+    awas_word_probe.set_defaults(func=cmd_awas_word_probe)
+
+    awas_word_run = subparsers.add_parser(
+        "awas-word-run-zotero-citation",
+        help="Insert an optional anchor and invoke ZoteroAddEditCitation in Word.",
+    )
+    awas_word_run.add_argument(
+        "--anchor-text", default="[AWAS-Zotero-citation-test-anchor]"
+    )
+    awas_word_run.set_defaults(func=cmd_awas_word_run_zotero_citation)
 
     return parser
 
